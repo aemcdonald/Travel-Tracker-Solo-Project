@@ -1,6 +1,7 @@
-class Traveler
+class Traveler {
   constructor() {
-    
+
   }
+}
 
 module.exports = Traveler;
