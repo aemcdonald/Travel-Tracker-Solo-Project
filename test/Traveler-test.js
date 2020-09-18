@@ -17,12 +17,20 @@ describe('Traveler', () => {
 
   it('should be an instance of Traveler', () => {
     expect(traveler1).to.be.an.instanceOf(Traveler);
-  })
+  });
 
   describe('Traveler Properties', () => {
 
     it('should store a traveler\'s id', () => {
       expect(traveler1.id).to.equal(1);
-    })
+    });
+
+    it('should store a traveler\'s name', () => {
+      expect(traveler1.name).to.equal('Ham Leadbeater');
+    });
+
+    it('should store a different traveler\'s name', () => {
+      expect(traveler2.name).to.equal('Rachael Vaughten');
+    });
   })
 });
