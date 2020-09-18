@@ -15,7 +15,14 @@ describe('Traveler', () => {
     expect(Traveler).to.be.a('function');
   });
 
-  it('should be an instance Traveler', () => {
+  it('should be an instance of Traveler', () => {
     expect(traveler1).to.be.an.instanceOf(Traveler);
+  })
+
+  describe('Traveler Properties', () => {
+
+    it('should store a traveler\'s id', () => {
+      expect(traveler1.id).to.equal(1);
+    })
   })
 });
