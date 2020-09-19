@@ -26,12 +26,12 @@ describe('Trip', () => {
       expect(trip.id).to.equal(1);
     });
 
-    it('Should have a destination id', () => {
-      expect(trip.destinationID).to.equal(49);
-    })
-
     it('Should have a traveler id to associate with a traveler', () => {
       expect(trip.userID).to.equal(44)
+    })
+
+    it('Should have a destination id', () => {
+      expect(trip.destinationID).to.equal(49);
     })
 
     it('Should have a number of travelers for a booking', () => {
