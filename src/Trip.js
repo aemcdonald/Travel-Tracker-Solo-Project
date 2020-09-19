@@ -1,12 +1,12 @@
 class Trip {
-  constructor() {
-    this.id = id;
-    this.userID = userID;
-    this.destinationID = destinationID;
-    this.numTravelers = numTravelers;
-    this.date = date;
-    this.duration = duration;
-    this.status = status;
+  constructor(trip) {
+    this.id = trip.id;
+    this.userID = trip.userID;
+    this.destinationID = trip.destinationID;
+    this.numTravelers = trip.numTravelers;
+    this.date = trip.date;
+    this.duration = trip.duration;
+    this.status = trip.status;
     this.suggestedActivities = []; //will I use this??
   }
 }
