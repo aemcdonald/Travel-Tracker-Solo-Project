@@ -22,5 +22,9 @@ describe('Trip', () => {
     it('should have an id', () => {
       expect(trip.id).to.equal(1);
     });
+
+    it('Should have a destination id for bookings', () => {
+      expect(trip.destinationID).to.eq(49);
+    });
   });
 });
