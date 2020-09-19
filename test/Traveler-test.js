@@ -22,20 +22,21 @@ describe('Traveler', () => {
 
   describe('Traveler Properties', () => {
 
-    it('should store a traveler\'s id', () => {
+    it('should have an id', () => {
       expect(traveler1.id).to.equal(1);
     });
 
-    it('should store a traveler\'s name', () => {
+    it('should have a name', () => {
       expect(traveler1.name).to.equal('Ham Leadbeater');
     });
 
-    it('should store a different traveler\'s name', () => {
+    it('should be able to store a different traveler\'s name', () => {
       expect(traveler2.name).to.equal('Rachael Vaughten');
     });
 
-    it('should store a traveler type', () => {
+    it('should have different traveler types', () => {
       expect(traveler1.travelerType).to.equal('relaxer');
+      expect(traveler2.travelerType).to.equal('thrill-seeker');
     });
   })
 
