@@ -44,5 +44,14 @@ describe('Traveler', () => {
     it('should start with no past trips', () => {
       expect(traveler1.pastTrips).to.deep.equal([]);
     });
+
+    it('should get all trips for a traveler', () => {
+      traveler1.getAllTrips(trips);
+      traveler2.getAllTrips(trips)
+      traveler3.getAllTrips(trips)
+      expect(traveler1.allTrips.length).to.equal(1);
+      expect(traveler2.allTrips.length).to.equal(6);
+      expect(traveler3.allTrips.length).to.equal(7);
+    });
   })
 });
