@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Travel Tracker</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <header>
+      <h1>Travel Tracker</h1>
+    </header>
+    <section class='main'>
+      <section class='trip-information-area'>
+        <form class="request-trip-form "method="post">
+              <h3>Book A Trip:</h3>
+              <section class="form-container">
+              <label for="trip-date">Trip Date:</label>
+              <input id="trip-date" type="date" name="trip-date" value=""></input>
+              </section>
+              <section class="form-container">
+              <label for="trip-duration">Duration:</label>
+              <input id="trip-duration" type="number" name="trip-duration" min="0"></input>
+              </section>
+              <section class="form-container">
+                <label for="trip-travelers">Travelers:</label>
+                <input id="trip-travelers" type="number" name="trip-travelers" min="1"></input>
+              </section>
+              <section class="form-container">
+                <label for="trip-destinations">Destination:</label>
+                <input id="trip-destinations" type="text" name="trip-destinations" list="destination-name">
+                  <datalist id="destination-name">
+                  </datalist>
+                </input>
+              </section>
+              <section id="button"class="form-container">
+                <button id="estimated-cost-btn" class="estimated-cost-btn" type="button" name="cost">Estimated Cost</button>
+                <button id="submit-btn" class="submit-btn" type="button" name="submit">Submit</button>
+              </section>
+          </form>
+          <section class='total-spent'>
+            <h3>Total Cost YTD</h3>
+          </section>
+      </section>
+      <section class='current-trips-area'>
+        <h3>Current Trips</h3>
+      </section>
+      <section class='upcoming-trips-area'>
+        <h3>Upcoming Trips</h3>
+      </section>
+      <section class='past-trips-area'>
+        <h3>Past Trips</h3>
+      </section>
+    </section>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
