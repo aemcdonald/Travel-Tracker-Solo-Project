@@ -17,4 +17,10 @@ describe('Trip', () => {
   it('should be an instance of a trip', () => {
     expect(trip).to.be.an.instanceof(Trip);
   });
+
+  describe('Trip Properties', () => {
+    it('should have an id', () => {
+      expect(trip.id).to.equal(1);
+    });
+  });
 });
