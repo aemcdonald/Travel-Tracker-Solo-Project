@@ -46,6 +46,10 @@ describe('Traveler', () => {
       expect(traveler1.pastTrips).to.deep.equal([]);
     });
 
+    it('should start with no current trips', () => {
+      expect(traveler1.pastTrips).to.deep.equal([]);
+    });
+
     it('should get all trips for a traveler', () => {
       traveler1.getAllTrips(trips);
       traveler2.getAllTrips(trips);
