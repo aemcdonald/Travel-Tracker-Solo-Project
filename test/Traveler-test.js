@@ -71,5 +71,20 @@ describe('Traveler', () => {
       traveler2.getCurrentTrip("2020/03/06");
       expect(traveler2.currentTrip.length).to.equal(1);
     });
+
+    it('should not return a trip if a user is not on a trip', () => {
+      traveler1.getAllTrips(trips);
+      traveler1.getCurrentTrip("2020/09/18");
+      expect(traveler1.currentTrip.length).to.equal(0);
+    });
+
+    it('should return a user\'s future trips', () => {
+      traveler1.getAllTrips(trips);
+      traveler1.getUpcomingTrips("2020/09/18");
+      expect(traveler1.upcomingTrips.length).to.equal(1);
+      traveler3.getAllTrips(trips);
+      traveler3.getUpcomingTrips("2020/09/18");
+      expect(traveler3.upcomingTrips.length).to.equal(1);
+    });
   })
 });
