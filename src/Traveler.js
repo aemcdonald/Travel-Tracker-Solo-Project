@@ -39,6 +39,13 @@ class Traveler {
       }
     })
   }
+  sortPendingTrips() {
+    this.allTrips.forEach(trip => {
+      if (trip.status === 'pending') {
+        this.pendingTrips.push(trip);
+      }
+    })
+  }
 }
 
 export default Traveler;
