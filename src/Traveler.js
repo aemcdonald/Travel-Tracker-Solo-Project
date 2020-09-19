@@ -16,6 +16,13 @@ class Traveler {
       }
     })
   }
+  getPastTrips(date) {
+    this.allTrips.forEach(trip => {
+        if (trip.date < date) {
+        this.pastTrips.push(trip)
+      }
+    })
+  }
 }
 
 module.exports = Traveler;
