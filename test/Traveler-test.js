@@ -38,9 +38,6 @@ describe('Traveler', () => {
       expect(traveler1.travelerType).to.equal('relaxer');
       expect(traveler2.travelerType).to.equal('thrill-seeker');
     });
-  })
-
-  describe('Traveler Methods', () => {
 
     it('should start with no past trips', () => {
       expect(traveler1.pastTrips).to.deep.equal([]);
@@ -49,6 +46,9 @@ describe('Traveler', () => {
     it('should start with no current trips', () => {
       expect(traveler1.pastTrips).to.deep.equal([]);
     });
+  })
+
+  describe('Traveler Methods', () => {
 
     it('should get all trips for a traveler', () => {
       traveler1.getAllTrips(trips);
