@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 class Traveler {
   constructor(traveler) {
     this.id = traveler.id;
@@ -5,7 +7,6 @@ class Traveler {
     this.travelerType = traveler.travelerType;
     this.allTrips = [];
     this.pastTrips = [];
-    this.presentTrips = [];
     this.currentTrip = [];
     this.upcomingTrips = []
   }
@@ -16,13 +17,20 @@ class Traveler {
       }
     })
   }
-  getPastTrips(date) {
+  getPastTrips(currentDate) {
     this.allTrips.forEach(trip => {
-        if (trip.date < date) {
+        if (trip.date < currentDate) {
         this.pastTrips.push(trip)
+      }
+    })
+  }
+  getCurrentTrip(currentDate) {
+    this.allTrips.forEach(trip => {
+      if (currentDate >= trip.date && currentDate <= moment(new Date(trip.date)).add(trip.duration, 'days').format('YYYY/MM/DD')) {
+        this.currentTrip.push(trip);
       }
     })
   }
 }
 
-module.exports = Traveler;
+export default Traveler;
