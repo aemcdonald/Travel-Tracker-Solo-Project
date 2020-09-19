@@ -47,13 +47,15 @@ describe('Trip', () => {
 
     it('Should have a duration for a booking', () => {
       expect(trip.duration).to.equal(8);
-    })
+    });
 
     it('Should be able to have a status of approved', () => {
       expect(trip.status).to.equal('approved');
-    })
+    });
 
-
+    it('Should be able to have a status of pending', () => {
+      expect(trip1.status).to.equal('pending');
+    });
 
   });
 });
