@@ -11,4 +11,4 @@ class Trip {
   }
 }
 
-module.exports = Trip;
+export default Trip;
