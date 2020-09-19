@@ -92,5 +92,14 @@ describe('Traveler', () => {
       traveler1.getCurrentTrip("2020/09/18");
       expect(traveler1.currentTrip.length).to.equal(0);
     });
+
+    it('should return pending trips for a user', () => {
+      traveler1.getAllTrips(trips);
+      traveler1.sortPendingTrips();
+      expect(traveler1.pendingTrips.length).to.equal(0);
+      traveler2.getAllTrips(trips);
+      traveler2.sortPendingTrips();
+      expect(traveler2.pendingTrips.length).to.equal(1);
+    });
   })
 });
