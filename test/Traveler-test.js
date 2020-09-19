@@ -62,5 +62,14 @@ describe('Traveler', () => {
       traveler3.getPastTrips("2020/09/18");
       expect(traveler3.pastTrips.length).to.equal(6);
     });
+
+    it('should get the current trip for a user', () => {
+      traveler1.getAllTrips(trips);
+      traveler1.getCurrentTrip("2021/01/10");
+      expect(traveler1.currentTrip.length).to.equal(1);
+      traveler2.getAllTrips(trips);
+      traveler2.getCurrentTrip("2020/03/06");
+      expect(traveler2.currentTrip.length).to.equal(1);
+    });
   })
 });
