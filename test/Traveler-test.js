@@ -50,6 +50,10 @@ describe('Traveler', () => {
     it('should start with no upcoming trips', () => {
       expect(traveler1.pastTrips).to.deep.equal([]);
     });
+
+    it('should start with no pending trips', () => {
+      expect(traveler1.pastTrips).to.deep.equal([]);
+    });
   })
 
   describe('Traveler Methods', () => {

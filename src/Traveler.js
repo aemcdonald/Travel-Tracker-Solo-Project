@@ -46,6 +46,8 @@ class Traveler {
       }
     })
   }
+  //method to calculate total amount a user has spent on trips this year
+  //should be calculated from trips data & incldue a travel agent's 10% fee
 }
 
 export default Traveler;
