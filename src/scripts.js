@@ -3,11 +3,13 @@
  function loadData() {    //rename later?
    let allUserData = apiCalls.fetchAllUsersData()
    let allTripData = apiCalls.fetchAllTripsData()
-   Promise.all([allUserData, allTripData])
+   let allDestinationData = apiCalls.fetchAllDestinationsData()
+   Promise.all([allUserData, allTripData, allDestinationData])
    .then(data => { //data will be everything returned in promise.all
      console.log("All Data", data)
      //let allUsers = data[0]
      //let allTrips = data[1] //ie whenever I'm calling my traveler this is my trips data
+     //let allDestinations = data[2]
    })
  }
  loadData()
