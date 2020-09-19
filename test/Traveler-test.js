@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import travelers from './travelers-data.js';
+import trips from './trips-data.js';
 import Traveler from '../src/Traveler.js';
 
 describe('Traveler', () => {
@@ -31,6 +32,10 @@ describe('Traveler', () => {
 
     it('should store a different traveler\'s name', () => {
       expect(traveler2.name).to.equal('Rachael Vaughten');
+    });
+
+    it('should store a traveler type', () => {
+      expect(traveler1.travelerType).to.equal('relaxer');
     });
   })
 });
