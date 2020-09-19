@@ -5,9 +5,15 @@ let apiCalls = {
   fetchAllUsersData() {
     return fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/travelers/travelers')
     .then(response => response.json())
-    // .then(data => console.log(data))
+    .then(data => data.travelers)
     .catch(error => console.log(error))
-  } //need comma here!
+  },
+  fetchAllTripsData() {
+    return fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips')
+    .then(response => response.json())
+    .then(data => data.trips)
+    .catch(error => console.log(error))
+  }
 }
 
 
