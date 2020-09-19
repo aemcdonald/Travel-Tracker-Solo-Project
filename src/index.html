@@ -8,6 +8,34 @@
       <h1>Travel Tracker</h1>
     </header>
     <section class='main'>
+      <section class='trip-information-area'>
+        <form class="request-trip-form "method="post">
+              <h3>Request A New Trip:</h3>
+              <section class="form-container">
+              <label for="trip-date">Trip Date:</label>
+              <input id="trip-date" type="date" name="trip-date" value=""></input>
+              </section>
+              <section class="form-container">
+              <label for="trip-duration">Duration:</label>
+              <input id="trip-duration" type="number" name="trip-duration" min="0"></input>
+              </section>
+              <section class="form-container">
+                <label for="trip-travelers">Travelers:</label>
+                <input id="trip-travelers" type="number" name="trip-travelers" min="1"></input>
+              </section>
+              <section class="form-container">
+                <label for="trip-destinations">Destination:</label>
+                <input id="trip-destinations" type="text" name="trip-destinations" list="destination-name">
+                  <datalist id="destination-name">
+                  </datalist>
+                </input>
+              </section>
+              <section id="button"class="form-container">
+                <button id="estimated-cost-btn" class="estimated-cost-btn" type="button" name="cost">Estimated Cost</button>
+                <button id="submit-btn" class="submit-btn" type="button" name="submit">Submit</button>
+              </section>
+          </form>
+      </section>
       <section class='current-trips-area'>
       </section>
       <section class='upcoming-trips-area'>
