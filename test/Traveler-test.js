@@ -38,4 +38,11 @@ describe('Traveler', () => {
       expect(traveler1.travelerType).to.equal('relaxer');
     });
   })
+
+  describe('Traveler Methods', () => {
+
+    it('should start with no past trips', () => {
+      expect(traveler1.pastTrips).to.deep.equal([]);
+    });
+  })
 });
