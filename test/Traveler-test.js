@@ -60,7 +60,7 @@ describe('Traveler', () => {
       expect(traveler2.pastTrips.length).to.equal(4);
       traveler3.getAllTrips(trips);
       traveler3.getPastTrips("2020/09/18");
-      expect(traveler3.pastTrips.length).to.equal(6);
+      expect(traveler3.pastTrips.length).to.equal(5);
     });
 
     it('should get the current trip for a user', () => {
@@ -85,6 +85,12 @@ describe('Traveler', () => {
       traveler3.getAllTrips(trips);
       traveler3.getUpcomingTrips("2020/09/18");
       expect(traveler3.upcomingTrips.length).to.equal(1);
+    });
+
+    it('should not return a trip if a user is not on a trip', () => {
+      traveler1.getAllTrips(trips);
+      traveler1.getCurrentTrip("2020/09/18");
+      expect(traveler1.currentTrip.length).to.equal(0);
     });
   })
 });
