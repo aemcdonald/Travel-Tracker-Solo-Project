@@ -28,18 +28,24 @@ describe('Trip', () => {
 
     it('Should have a traveler id to associate with a traveler', () => {
       expect(trip.userID).to.equal(44)
-    })
+    });
 
     it('Should have a destination id', () => {
       expect(trip.destinationID).to.equal(49);
-    })
+    });
 
     it('Should have a number of travelers for a booking', () => {
       expect(trip.travelers).to.equal(1);
       expect(trip1.travelers).to.equal(5);
-    })
+    });
 
     //default number of travelers of 1??
+
+    it('Should have a date for a booking', () => {
+      expect(trip.date).to.equal('2019/09/16');
+    });
+
+    
 
 
 
