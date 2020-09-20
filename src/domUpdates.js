@@ -25,6 +25,11 @@ const domUpdates = {
       `;
       destinationSelector.insertAdjacentHTML('beforeend', destinationOption);
     })
+  },
+  showWelcomeUser(singleUser) {
+    let firstName = singleUser.name.split(' ');
+    let welcome = document.querySelector('.welcome');
+    welcome.innerText = `Welcome, ${firstName[0]}!`;
   }
 }
 
