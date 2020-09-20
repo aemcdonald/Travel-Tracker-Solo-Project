@@ -26,7 +26,16 @@ function loadData() {    //rename later?
     allTravelers = data[0].map(traveler => {
       return new Traveler(traveler)
     })
+    console.log("allTravelers", allTravelers)
     //singleUserData????
+    allTripData = data[2].map(trip => {
+      return new Trip(trip);
+    })
+    console.log("allTripData", allTripData)
+    allDestinationData = data[3].map(destination => {
+      return new Destination(destination);
+    })
+    console.log("allDestinationData", allDestinationData)
     //let allUsers = data[0]
     // allUsers.forEach(user => {
     //   user = new User() //push this to an empty array at top of scripts
