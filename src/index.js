@@ -67,5 +67,6 @@ function showTravelerDashboard() {
   domUpdates.showDestinationsDropdown();
   domUpdates.showWelcomeUser(singleUser);
   domUpdates.showTravelerExpensesYTD(today);
+  domUpdates.displayTrips()
   //domUpdates methods can be chained here
 }
