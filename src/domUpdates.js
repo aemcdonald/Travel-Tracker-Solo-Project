@@ -37,6 +37,36 @@ const domUpdates = {
     const annualTravelExpenses = this.traveler.getTotalSpentThisYear(this.destinations, today);
     let totalAmtSpent = document.querySelector('.total-spent')
     totalAmtSpent.innerText = `$${annualTravelExpenses}`
+  },
+
+  sortTripsByDate() {
+    let sortedTrips = this.traveler.allTrips.sort((trip1, trip2) => {
+      return new Date(trip1.date) - new Date(trip2.date)
+    })
+    return sortedTrips
+  },
+
+  displayTrips() {
+    let sortedTrips = this.sortTripsByDate()
+    console.log(sortedTrips)
+    let tripsArea = document.querySelector('.trips-area');
+    console.log(this.destinations)
+    sortedTrips.forEach(trip => {
+      let destination = this.destinations.find(destination => {
+        return trip.destinationID === destination.id
+      })
+      let tripCard = `
+      <article class='trip' id='${trip.id}'>
+        <h4>${destination.destination}</h4>
+        <img src="${destination.image}" alt="${destination.alt}" class="trip-image">
+          <p>Departure: ${trip.date}</p>
+          <p>Days: ${trip.duration}</p>
+          <p>Travelers:${trip.travelers}</p>
+          <p>Status:${trip.status}</p>
+      </article>
+      `
+      tripsArea.insertAdjacentHTML('afterBegin', tripCard);
+    })
   }
 }
 
