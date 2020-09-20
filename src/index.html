@@ -5,7 +5,7 @@
   </head>
   <body>
     <header>
-      <h1>Travel Tracker</h1>
+      <h1 class='welcome'>Travel Tracker</h1>
     </header>
     <section class='main'>
       <section class='trip-information-area'>
@@ -25,7 +25,7 @@
               </section>
               <section class="form-container">
                 <label for="trip-destinations">Destination:</label>
-                <input id="trip-destinations" type="text" name="trip-destinations" list="destination-name">
+                <select name="destination-selector" id="destination-selector"></select>
                   <datalist id="destination-name">
                   </datalist>
                 </input>
@@ -35,19 +35,20 @@
                 <button id="submit-btn" class="submit-btn" type="button" name="submit">Submit</button>
               </section>
           </form>
-          <section class='total-spent'>
+          <section class='trip-expenses'>
             <h3>Total Cost YTD</h3>
+            <p class='total-spent'></p>
           </section>
       </section>
-      <section class='current-trips-area'>
+      <section class='trips-area'>
         <h3>Current Trips</h3>
       </section>
-      <section class='upcoming-trips-area'>
+      <!-- <section class='upcoming-trips-area'>
         <h3>Upcoming Trips</h3>
       </section>
       <section class='past-trips-area'>
         <h3>Past Trips</h3>
-      </section>
+      </section> -->
     </section>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
