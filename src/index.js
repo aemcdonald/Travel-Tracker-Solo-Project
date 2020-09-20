@@ -11,32 +11,38 @@ import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Destination from './Destination.js';
 import Trip from './Trip.js';
-import domUpdates from './domUpdates.js';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
-let destinationSelector = document.querySelector('#destination-selector');
+let destinationSelector = document.getElementById('destination-selector');
 
- let allUsers;
- let singleUser;
- let allTripData;
+ let allUsers
+ let singleUser
+ let allTripData
  let allDestinationData;
 
 function loadData() {    //rename later?
+  let travelerData = apiCalls.fetchAllUsersData();
+  let userData = apiCalls.fetchSingleUser();
+  let tripsData = apiCalls.fetchAllTripsData();
   let destinationsData = apiCalls.fetchAllDestinationsData()
-  Promise.all([apiCalls.fetchAllUsersData(), apiCalls.fetchSingleUser(),
-    apiCalls.fetchAllTripsData(), apiCalls.fetchAllTripsData()])
-  .then(data => {
-    allUsers = data[0].map(traveler => new Traveler(traveler))
-    singleUser = allUsers[Math.floor(Math.random() * allUsers.length)]
+  Promise.all([travelerData, userData, tripsData, destinationsData])
+  .then(data => { //data is everything returned in promise.all
+    console.log("All Data", data)
+    allUsers = data[0].map(traveler => {
+      return new Traveler(traveler)
+    })
+    console.log("allTravelers", allUsers)
+    singleUser = new Traveler(data[1])
     console.log("singleUserData", singleUser)
-    allTripData = data[2].map(trip => new Trip(trip))
-    allDestinationData = data[3].map(destination => new Destination(destination))
-    domUpdates.getData(allUsers, singleUser, allTripData, allDestinationData)
+    allTripData = data[2].map(trip => {
+      return new Trip(trip);
+    })
+    console.log("allTripData", allTripData)
+    allDestinationData = data[3].map(destination => {
+      return new Destination(destination);
+    })
+    console.log("allDestinationData", allDestinationData)
   })
 }
 
 loadData()
-
-function showTravelerDashboard(){
-  domUpdates.showDestinationsDropdown(allDestinationData)
-}
