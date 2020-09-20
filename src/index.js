@@ -5,6 +5,7 @@
 import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
+import moment from 'moment';
 import './images/turing-logo.png';
 import './index.js'; //do I need to do this?
 import apiCalls from './apiCalls.js';
@@ -20,6 +21,7 @@ let destinationSelector = document.getElementById('destination-selector');
  let singleUser
  let allTripData
  let allDestinationData;
+ let today = moment().format('YYYY/MM/DD')
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
@@ -34,8 +36,9 @@ function loadData() {    //rename later?
     })
     //console.log("allTravelers", allUsers)
     // singleUser = new Traveler(data[1])
-    singleUser = allUsers[Math.floor(Math.random() * allUsers.length)]
-    console.log("singleUserData", singleUser)
+    // singleUser = allUsers[Math.floor(Math.random() * allUsers.length)]
+    singleUser = allUsers[2] //2
+    //console.log("singleUserData", singleUser)
     allTripData = data[2].map(trip => {
       return new Trip(trip);
     })
@@ -46,26 +49,23 @@ function loadData() {    //rename later?
     //console.log("allDestinationData", allDestinationData)
     domUpdates.getData(allUsers, singleUser, allTripData, allDestinationData)
   })
+  .then(() => getAllData(singleUser, allTripData, today))
   .then(() => showTravelerDashboard())
 }
 
 loadData()
 
-function showTravelerDashboard() {
-  domUpdates.showDestinationsDropdown();  
-  domUpdates.showWelcomeUser(singleUser);
-  //domUpdates methods can be chained here
+function getAllData(singleUser, allTripData, today) {
+  singleUser.getAllTrips(allTripData);
+  singleUser.getPastTrips(today);
+  singleUser.getCurrentTrip(today);
+  singleUser.getUpcomingTrips(today);
+  singleUser.sortPendingTrips();
 }
 
-
-
-
-
-// function showDestinationsDropdown() {
-//   // let destinationSelector = document.querySelector('#destination-selector');
-//   console.log("derp", this.destinations)
-//   allDestinationData.forEach(destination => {
-//     console.log(destination)
-//   })
-
-//showDestinationsDropdown()
+function showTravelerDashboard() {
+  domUpdates.showDestinationsDropdown();
+  domUpdates.showWelcomeUser(singleUser);
+  domUpdates.showTravelerExpensesYTD(today);
+  //domUpdates methods can be chained here
+}
