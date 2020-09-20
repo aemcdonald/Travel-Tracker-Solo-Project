@@ -46,8 +46,16 @@ class Traveler {
       }
     })
   }
-  //method to calculate total amount a user has spent on trips this year
-  //should be calculated from trips data & incldue a travel agent's 10% fee
+  getTotalSpentThisYear(destinationData, currentDate) {
+    let tripsThisYear = this.allTrips.filter(trip => {
+      return (trip.date.includes('2020') && trip.date < currentDate)
+    })
+    let total = 0;
+    tripsThisYear.forEach(trip => {
+      total += trip.calculateTripCost(destinationData);
+    })
+    return total;
+    }
 }
 
 export default Traveler;
