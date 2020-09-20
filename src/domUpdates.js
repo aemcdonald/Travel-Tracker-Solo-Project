@@ -9,7 +9,8 @@ const domUpdates = {
     this.traveler = singleUser;
     this.trips = allTripData;
     this.destinations = allDestinationData;
-  }
+  },
+
 }
 
 export default domUpdates;
