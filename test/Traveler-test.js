@@ -1,15 +1,21 @@
 import { expect } from 'chai';
 import travelers from './travelers-data.js';
-import trips from './trips-data.js';
+import tripsData from './trips-data.js';
+import destinationData from './destinations-data.js';
 import Traveler from '../src/Traveler.js';
+import Trip from '../src/Trip.js';
 
 describe('Traveler', () => {
   let traveler1, traveler2, traveler3;
+  let trips;
 
   beforeEach(() => {
     traveler1 = new Traveler(travelers[0]);
     traveler2 = new Traveler(travelers[1]);
     traveler3 = new Traveler(travelers[2]);
+    trips = tripsData.map(trip => {
+      return new Trip(trip)
+    })
   });
 
   it('should be a function', () => {
@@ -114,5 +120,13 @@ describe('Traveler', () => {
       traveler2.sortPendingTrips();
       expect(traveler2.pendingTrips.length).to.equal(1);
     });
-  })
+
+    it('Should calculate the total amount spent on trips this year', () => {
+      let trip = new Trip(trips[0])
+      traveler2.getAllTrips(trips);
+      traveler3.getAllTrips(trips);
+      expect(traveler2.getTotalSpentThisYear(destinationData, "2020/09/19")).to.equal(6917.9);
+      expect(traveler3.getTotalSpentThisYear(destinationData, "2020/09/19")).to.equal(32670);
+    });
+  });
 });
