@@ -52,7 +52,8 @@ function loadData() {    //rename later?
 loadData()
 
 function showTravelerDashboard() {
-  domUpdates.showDestinationsDropdown()
+  domUpdates.showDestinationsDropdown();  
+  domUpdates.showWelcomeUser(singleUser);
   //domUpdates methods can be chained here
 }
 
