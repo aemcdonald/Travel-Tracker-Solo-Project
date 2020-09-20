@@ -11,6 +11,7 @@ import apiCalls from './apiCalls.js';
 import Traveler from './Traveler.js';
 import Destination from './Destination.js';
 import Trip from './Trip.js';
+import domUpdates from './domUpdates.js';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 let destinationSelector = document.getElementById('destination-selector');
@@ -42,6 +43,7 @@ function loadData() {    //rename later?
       return new Destination(destination);
     })
     console.log("allDestinationData", allDestinationData)
+    domUpdates.getData(allUsers, singleUser, allTripData, allDestinationData)
   })
 }
 
