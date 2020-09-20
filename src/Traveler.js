@@ -17,6 +17,7 @@ class Traveler {
         this.allTrips.push(trip);
       }
     })
+    return this.allTrips;
   }
   getPastTrips(currentDate) {
     this.allTrips.forEach(trip => {
@@ -24,6 +25,7 @@ class Traveler {
         this.pastTrips.push(trip)
       }
     })
+    return this.pastTrips;
   }
   getCurrentTrip(currentDate) {
     this.allTrips.forEach(trip => {
@@ -31,6 +33,7 @@ class Traveler {
         this.currentTrip.push(trip);
       }
     })
+    return this.currentTrip;
   }
   getUpcomingTrips(currentDate) {
     this.allTrips.forEach(trip => {
@@ -38,6 +41,7 @@ class Traveler {
         this.upcomingTrips.push(trip);
       }
     })
+    return this.upcomingTrips;
   }
   sortPendingTrips() {
     this.allTrips.forEach(trip => {
@@ -45,6 +49,7 @@ class Traveler {
         this.pendingTrips.push(trip);
       }
     })
+    return this.pendingTrips;
   }
   getTotalSpentThisYear(destinationData, currentDate) {
     let tripsThisYear = this.allTrips.filter(trip => {
