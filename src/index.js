@@ -32,19 +32,39 @@ function loadData() {    //rename later?
     allUsers = data[0].map(traveler => {
       return new Traveler(traveler)
     })
-    console.log("allTravelers", allUsers)
-    singleUser = new Traveler(data[1])
+    //console.log("allTravelers", allUsers)
+    // singleUser = new Traveler(data[1])
+    singleUser = allUsers[Math.floor(Math.random() * allUsers.length)]
     console.log("singleUserData", singleUser)
     allTripData = data[2].map(trip => {
       return new Trip(trip);
     })
-    console.log("allTripData", allTripData)
+    //console.log("allTripData", allTripData)
     allDestinationData = data[3].map(destination => {
       return new Destination(destination);
     })
-    console.log("allDestinationData", allDestinationData)
+    //console.log("allDestinationData", allDestinationData)
     domUpdates.getData(allUsers, singleUser, allTripData, allDestinationData)
   })
+  .then(() => showTravelerDashboard())
 }
 
 loadData()
+
+function showTravelerDashboard() {
+  domUpdates.showDestinationsDropdown()
+  //domUpdates methods can be chained here
+}
+
+
+
+
+
+// function showDestinationsDropdown() {
+//   // let destinationSelector = document.querySelector('#destination-selector');
+//   console.log("derp", this.destinations)
+//   allDestinationData.forEach(destination => {
+//     console.log(destination)
+//   })
+
+//showDestinationsDropdown()
