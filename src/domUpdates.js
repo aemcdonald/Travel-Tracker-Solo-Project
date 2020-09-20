@@ -3,12 +3,14 @@ const domUpdates = {
   traveler: null,
   trips: null,
   destinations: null,
+  // today: null,
 
-  getData(allUsers, singleUser, allTripData, allDestinationData) {
+  getData(allUsers, singleUser, allTripData, allDestinationData, date) {
     this.allUsers = allUsers;
     this.traveler = singleUser;
     this.trips = allTripData;
     this.destinations = allDestinationData;
+    // this.today = date
   },
   showDestinationsDropdown() {
     let destinationSelector = document.querySelector('#destination-selector');
@@ -30,6 +32,11 @@ const domUpdates = {
     let firstName = singleUser.name.split(' ');
     let welcome = document.querySelector('.welcome');
     welcome.innerText = `Welcome, ${firstName[0]}!`;
+  },
+  showTravelerExpensesYTD(today){
+    const annualTravelExpenses = this.traveler.getTotalSpentThisYear(this.destinations, today);
+    let totalAmtSpent = document.querySelector('.total-spent')
+    totalAmtSpent.innerText = `$${annualTravelExpenses}`
   }
 }
 
