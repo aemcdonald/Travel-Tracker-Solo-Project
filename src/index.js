@@ -16,7 +16,6 @@ import domUpdates from './domUpdates.js';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
 window.addEventListener('load', loadData)
-let costButton = document.getElementById('estimated-cost-btn');
 
  let allUsers
  let singleUser
@@ -24,7 +23,7 @@ let costButton = document.getElementById('estimated-cost-btn');
  let allDestinationData;
  let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
- const tripCostButton = document.querySelector('.estimated-cost-btn');
+ let tripCostButton = document.getElementById('estimated-cost-btn');
  const submitTripButton = document.querySelector('.submit-btn');
 
  submitTripButton.addEventListener('click', getBookedTripInfo);
@@ -33,7 +32,8 @@ let costButton = document.getElementById('estimated-cost-btn');
    apiCalls.postTrip(bookTripInfo);
    loadData();
  })
- // costButton.addEventListener('click', )
+
+ tripCostButton.addEventListener('click', getBookedTripInfo)
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
@@ -100,4 +100,10 @@ function getBookedTripInfo() {
     status: 'pending',
     suggestedActivities: []
   }
+  let selectedTrip = new Trip(bookTripInfo)
+  getTripCost(selectedTrip, allDestinationData)
+}
+
+function getTripCost(selectedTrip, allDestinationData) {
+  console.log(selectedTrip.calculateTripCost(allDestinationData)) //need to create an alert for trip cost
 }
