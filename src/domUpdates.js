@@ -23,7 +23,7 @@ const domUpdates = {
     })
     sortedDestinations.forEach(destination => {
       let destinationOption = `
-      <option value='${destination.destination}' id='$destination.id'>${destination.destination}</option
+      <option value='${destination.id}'>${destination.destination}</option
       `;
       destinationSelector.insertAdjacentHTML('beforeend', destinationOption);
     })
@@ -32,7 +32,7 @@ const domUpdates = {
     let firstName = singleUser.name.split(' ');
     let welcome = document.querySelector('.welcome');
     welcome.innerText = `Welcome, ${firstName[0]}!`;
-  },
+    },
   showTravelerExpensesYTD(today){
     const annualTravelExpenses = this.traveler.getTotalSpentThisYear(this.destinations, today);
     let totalAmtSpent = document.querySelector('.total-spent')
