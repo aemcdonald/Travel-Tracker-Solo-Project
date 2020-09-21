@@ -26,14 +26,12 @@ window.addEventListener('load', loadData)
  let tripCostButton = document.getElementById('estimated-cost-btn');
  const submitTripButton = document.querySelector('.submit-btn');
 
- submitTripButton.addEventListener('click', getBookedTripInfo);
  submitTripButton.addEventListener('click', function() {
-   getBookedTripInfo();
    apiCalls.postTrip(bookTripInfo);
    loadData();
  })
 
- tripCostButton.addEventListener('click', getTripCost)
+ tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
@@ -100,15 +98,7 @@ function getBookedTripInfo() {
     status: 'pending',
     suggestedActivities: []
   }
-  // let selectedTrip = new Trip(bookTripInfo)
-  // getTripCost(selectedTrip, allDestinationData)
-}
-
-function getTripCost(selectedTrip, allDestinationData) {
-  console.log('click')
-  selectedTrip = new Trip(bookTripInfo)
-  console.log(selectedTrip)
+  let selectedTrip = new Trip(bookTripInfo)
   let estimatedTripCost = selectedTrip.calculateTripCost(allDestinationData)
-  alert(`Your current selections will cost $${estimatedTripCost}. Current price includes a 10% travel agent fee. Click "submit" to book!`) //need to create an alert for trip cost
-  //would like to create fn in domUpdates to display cost with inserted html if I have time
+  domUpdates.displayTripCost(estimatedTripCost)
 }
