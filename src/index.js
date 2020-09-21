@@ -25,9 +25,13 @@ let costButton = document.getElementById('estimated-cost-btn');
  let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
  const tripCostButton = document.querySelector('.estimated-cost-btn');
- const bookTripButton = document.querySelector('.submit-btn');
+ const submitTripButton = document.querySelector('.submit-btn');
 
- bookTripButton.addEventListener('click', getBookedTripInfo);
+ submitTripButton.addEventListener('click', getBookedTripInfo);
+ submitTripButton.addEventListener('click', function() {
+   getBookedTripInfo();
+   apiCalls.postTrip(bookTripInfo)
+ })
  // costButton.addEventListener('click', )
 
 function loadData() {    //rename later?
@@ -82,11 +86,11 @@ function getBookedTripInfo() {
   let capturedUserID = {userID: singleUser.id}
   let id = Date.now();
   let userID = capturedUserID.userID;
-  let destinationID = document.getElementById('destination-selector').value;
-  let travelersInput = document.getElementById('trip-travelers').value;
-  let dateInput = document.getElementById('trip-date').value;
+  let destinationID = +document.getElementById('destination-selector').value;
+  let travelersInput = +document.getElementById('trip-travelers').value;
+  let dateInput = +document.getElementById('trip-date').value;
   dateInput = moment().format('YYYY/MM/DD');
-  let durationInput = document.getElementById('trip-duration').value;
+  let durationInput = +document.getElementById('trip-duration').value;
   bookTripInfo = {
     id: id,
     userID: userID,
