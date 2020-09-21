@@ -24,7 +24,19 @@ let apiCalls = {
     .then(response => response.json())
     .then (data => data.destinations)
     .catch(error => console.log(error))
+  },
+  postTrip(bookTripInfo) {
+    return fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/trips/trips', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(bookTripInfo)
+    })
+    .then(response => response.json())
+    .then(data => console.log('success:', data))
+    .catch(err => console.log('failed', err.message))
   }
 }
 
-export default apiCalls
+export default apiCalls;
