@@ -15,13 +15,25 @@ import Trip from './Trip.js';
 import domUpdates from './domUpdates.js';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
-let destinationSelector = document.getElementById('destination-selector');
+window.addEventListener('load', loadData)
+let costButton = document.getElementById('estimated-cost-btn');
 
  let allUsers
  let singleUser
  let allTripData
  let allDestinationData;
+ let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
+ const tripCostButton = document.querySelector('.estimated-cost-btn');
+ const submitTripButton = document.querySelector('.submit-btn');
+
+ submitTripButton.addEventListener('click', getBookedTripInfo);
+ submitTripButton.addEventListener('click', function() {
+   getBookedTripInfo();
+   apiCalls.postTrip(bookTripInfo);
+   loadData();
+ })
+ // costButton.addEventListener('click', )
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
@@ -53,8 +65,6 @@ function loadData() {    //rename later?
   .then(() => showTravelerDashboard())
 }
 
-loadData()
-
 function getAllData(singleUser, allTripData, today) {
   singleUser.getAllTrips(allTripData);
   singleUser.getPastTrips(today);
@@ -69,4 +79,25 @@ function showTravelerDashboard() {
   domUpdates.showTravelerExpensesYTD(today);
   domUpdates.displayTrips()
   //domUpdates methods can be chained here
+}
+
+function getBookedTripInfo() {
+  let capturedUserID = {userID: singleUser.id}
+  let id = Date.now();
+  let userID = capturedUserID.userID;
+  let destinationID = +document.getElementById('destination-selector').value;
+  let travelersInput = +document.getElementById('trip-travelers').value;
+  let dateInput = document.getElementById('trip-date').value;
+  let selectedDate = moment.utc((new Date(dateInput))).format('YYYY/MM/DD');
+  let durationInput = +document.getElementById('trip-duration').value;
+  bookTripInfo = {
+    id: id,
+    userID: userID,
+    destinationID: destinationID,
+    travelers: travelersInput,
+    date: selectedDate,
+    duration: durationInput,
+    status: 'pending',
+    suggestedActivities: []
+  }
 }
