@@ -67,7 +67,19 @@ const domUpdates = {
       `
       tripsArea.insertAdjacentHTML('afterBegin', tripCard);
     })
+  },
+  displayTripCost(estimatedTripCost) {
+    let button = document.getElementById('estimated-cost-btn');
+    let displayCostHTML = `
+      <div id="trip-cost-display">
+      <h4>Estimated Trip Cost: $${estimatedTripCost} (10% agent fee included)</h4>
+    `
+    button.classList.add('hidden')
+    button.insertAdjacentHTML('beforebegin', displayCostHTML)
+    let submitButton = document.querySelector('.submit-btn');
+    submitButton.classList.remove('hidden')
   }
+
 }
 
 export default domUpdates;
