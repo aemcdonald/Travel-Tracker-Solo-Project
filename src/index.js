@@ -33,7 +33,7 @@ window.addEventListener('load', loadData)
    loadData();
  })
 
- tripCostButton.addEventListener('click', getBookedTripInfo)
+ tripCostButton.addEventListener('click', getTripCost)
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
@@ -100,11 +100,15 @@ function getBookedTripInfo() {
     status: 'pending',
     suggestedActivities: []
   }
-  let selectedTrip = new Trip(bookTripInfo)
-  getTripCost(selectedTrip, allDestinationData)
+  // let selectedTrip = new Trip(bookTripInfo)
+  // getTripCost(selectedTrip, allDestinationData)
 }
 
 function getTripCost(selectedTrip, allDestinationData) {
+  console.log('click')
+  selectedTrip = new Trip(bookTripInfo)
+  console.log(selectedTrip)
   let estimatedTripCost = selectedTrip.calculateTripCost(allDestinationData)
-  alert(`Your current selections will cost $${estimatedTripCost}, click "submit" to book!`) //need to create an alert for trip cost
+  alert(`Your current selections will cost $${estimatedTripCost}. Current price includes a 10% travel agent fee. Click "submit" to book!`) //need to create an alert for trip cost
+  //would like to create fn in domUpdates to display cost with inserted html if I have time
 }
