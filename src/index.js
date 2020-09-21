@@ -105,5 +105,6 @@ function getBookedTripInfo() {
 }
 
 function getTripCost(selectedTrip, allDestinationData) {
-  console.log(selectedTrip.calculateTripCost(allDestinationData)) //need to create an alert for trip cost
+  let estimatedTripCost = selectedTrip.calculateTripCost(allDestinationData)
+  alert(`Your current selections will cost $${estimatedTripCost}, click "submit" to book!`) //need to create an alert for trip cost
 }
