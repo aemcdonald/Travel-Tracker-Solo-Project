@@ -23,67 +23,44 @@ window.addEventListener('load', loadData)
  let allDestinationData;
  let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
+
+ let loginButton = document.querySelector('.login-button');
  let tripCostButton = document.getElementById('estimated-cost-btn');
- const submitTripButton = document.querySelector('.submit-btn');
-
- //user login
-//need event listener for username
-//need event listener for pw
-//function to login user
-  //add event listener to login button
-  //when button is clicked, fire _____
-
-//need to get userID
-  //need query selector for the userID input.value
-  //if the username includes "traveler"
-    //then assign travelerID to the input value split at r at index of 1
-    //return the traveler id
-  //else return undefined so nothing happens?????
-// domUpdates.validateLogin(){
-//
-// }
-//let loginButton = document.getElementById('login-button');
-//loginButton.addEventListener('click' attemptUserLogin)
-// function attemptUserLogin() {
-//  let username = document.getElementById('username-input')
-//  let password = document.getElementById('password-input')
-//  if (username.toLowerCase().includes('traveler'))
-
-// }
-
-
-//user login
-//need event listener for username
-//need event listener for pw
-//function to login user
-  //add event listener to login button
-  //when button is clicked, fire _____
-
-//need to get userID
-  //need query selector for the userID input.value
-  //if the username includes "traveler"
-    //then assign travelerID to the input value split at r at index of 1
-    //return the traveler id
-  //else return undefined so nothing happens?????
-// domUpdates.validateLogin(){
-//
-// }
-//let loginButton = document.getElementById('login-button');
-//loginButton.addEventListener('click' attemptUserLogin)
-// function attemptUserLogin() {
-//  let username = document.getElementById('username-input')
-//  let password = document.getElementById('password-input')
-//  if (username.toLowerCase().includes('traveler'))
-
-// }
-
+ let submitTripButton = document.querySelector('.submit-btn');
+ let tripInfoArea = document.querySelector('.trip-information-area');
+ let tripsArea = document.querySelector('.trips-area');
+ let welcome = document.querySelector('.welcome');
+ let travelExpenses = document.querySelector('.trip-expenses');
+ let logoutButton = document.querySelector('.logout-button');
+ let loginForm = document.querySelector('.login-form')
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
    loadData();
  })
 
+ loginButton.addEventListener('click', attemptUserLogin);
  tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
+
+ function attemptUserLogin() {
+   event.preventDefault() //do I need this here??
+  let username = document.getElementById('username-input').value;
+  let password = document.getElementById('password-input').value;
+  if (username.includes('traveler') && username.split('traveler')[1] > 0 && username.split('traveler')[1] < 51 && password === 'travel2020') {
+    // console.log('pass!')
+    let userID = parseInt(username.substr(8))
+    console.log("login success!")
+    tripInfoArea.classList.remove('hidden');
+    tripsArea.classList.remove('hidden');
+    welcome.classList.remove('hidden');
+    travelExpenses.classList.remove('hidden');
+    logoutButton.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+    //call loadData, pass in userID -1 if I'm gonna use index number
+  } else {
+    alert('Incorrect username or password')
+  }
+ }
 
 function loadData() {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
