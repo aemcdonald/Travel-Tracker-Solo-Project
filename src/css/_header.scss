@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.title {
+   margin-left: 120px;
+}
+
+.right-header-div {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+  align-items: center;
+}

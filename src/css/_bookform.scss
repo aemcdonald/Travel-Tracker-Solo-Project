@@ -1,0 +1,54 @@
+.trip-information-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-image: url('../images/sitting.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 360px;
+ }
+
+ .request-trip-form {
+  width: 780px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightslategrey;
+  opacity: 80%;
+ }
+
+ .form-container {
+   width: 50%;
+   height: 2em;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .booking-label {
+   font-size: 1.2em;
+   font-weight: bold;
+ }
+
+ #trip-date {
+  width: 60%;
+  height: 2em;
+ }
+
+ #trip-duration {
+  height: 1.8em;
+  width: 150px;
+  border-radius: 2px;
+  border: none;
+  margin-right: 82px;
+ }
+
+ #trip-travelers {
+  @extend #trip-duration;
+ }
+
+ #destination-selector {
+  @extend #trip-date;
+ }
