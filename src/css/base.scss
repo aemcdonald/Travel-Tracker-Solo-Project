@@ -10,14 +10,39 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   border: solid;
+}
+
+.welcome {
+  // width: 600px;
+}
+
+.title {
+  // width: 700px;
+  margin-left: 120px;
+}
+
+.right-header-div {
+  display: flex;
+  // border: 2px black solid;
+  width: 300px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logout-button {
+  width: 80px;
+  height: 2.5em;
+  border-radius: 2px;
+  border: none;
+  font-size: 1em;
 }
 
 .trip-information-area {
@@ -25,13 +50,87 @@ header {
   flex-direction: row;
   justify-content: space-around;
   // background-color: white;
-  border: solid white;
+  // border: solid white;
   background-image: url('../images/header-background.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 360px;
  }
+
+ .request-trip-form {
+  border: 2px solid white;
+  width: 780px;
+  // text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .form-container {
+   width: 50%;
+   height: 2em;
+   // border: solid 2px white;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .booking-label {
+   font-size: 1.2em;
+   font-weight: bold;
+ }
+
+ #trip-date {
+  width: 60%;
+  height: 2em;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-around;
+ }
+
+ #trip-duration {
+  height: 1.8em;
+  width: 20%;
+  border-radius: 2px;
+  border: none;
+  margin-right: 151px;
+ }
+
+ #trip-travelers {
+  @extend #trip-duration;
+ }
+
+ #destination-selector {
+  @extend #trip-date;
+ }
+
+ .form-button {
+   // border: 2px solid white;
+   height: 2.3em;
+   margin-top: 10px;
+   display: flex;
+   justify-content: center;
+ }
+
+ #estimated-cost-btn {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 1em;
+
+    &:hover {
+      cursor: pointer;
+      background-color: purple;
+    }
+}
+
+#submit-btn {
+  @extend #estimated-cost-btn;
+}
 
  .trips-area {
    width: 100%;
