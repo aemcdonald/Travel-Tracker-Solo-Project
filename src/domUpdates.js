@@ -3,14 +3,12 @@ const domUpdates = {
   traveler: null,
   trips: null,
   destinations: null,
-  // today: null,
 
   getData(allUsers, singleUser, allTripData, allDestinationData, date) {
     this.allUsers = allUsers;
     this.traveler = singleUser;
     this.trips = allTripData;
     this.destinations = allDestinationData;
-    // this.today = date
   },
   showDestinationsDropdown() {
     let destinationSelector = document.querySelector('#destination-selector');
@@ -36,22 +34,19 @@ const domUpdates = {
   showTravelerExpensesYTD(today){
     const annualTravelExpenses = this.traveler.getTotalSpentThisYear(this.destinations, today);
     let totalAmtSpent = document.querySelector('.total-spent')
-    totalAmtSpent.innerText = `$${annualTravelExpenses}`
+    totalAmtSpent.innerText = ` $${annualTravelExpenses}`
   },
 
   sortTripsByDate() {
-    let sortedTrips = this.traveler.allTrips.sort((trip1, trip2) => {
+    this.traveler.allTrips.sort((trip1, trip2) => {
       return new Date(trip1.date) - new Date(trip2.date)
     })
-    return sortedTrips
   },
 
   displayTrips() {
-    let sortedTrips = this.sortTripsByDate()
-    console.log(sortedTrips)
     let tripsArea = document.querySelector('.trips-area');
-    console.log(this.destinations)
-    sortedTrips.forEach(trip => {
+    tripsArea.innerHTML = '';
+    this.traveler.allTrips.forEach(trip => {
       let destination = this.destinations.find(destination => {
         return trip.destinationID === destination.id
       })
@@ -61,8 +56,8 @@ const domUpdates = {
         <img src="${destination.image}" alt="${destination.alt}" class="trip-image">
           <p>Departure: ${trip.date}</p>
           <p>Days: ${trip.duration}</p>
-          <p>Travelers:${trip.travelers}</p>
-          <p>Status:${trip.status}</p>
+          <p>Travelers: ${trip.travelers}</p>
+          <p>Trip Status: ${trip.status}</p>
       </article>
       `
       tripsArea.insertAdjacentHTML('afterBegin', tripCard);
