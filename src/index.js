@@ -15,8 +15,9 @@ import Trip from './Trip.js';
 import domUpdates from './domUpdates.js';
 
 // console.log('This is the JavaScript entry file - your code begins here.');
-window.addEventListener('load', loadData)
+//window.addEventListener('load', loadData)
 
+ let userID;
  let allUsers
  let singleUser
  let allTripData
@@ -24,6 +25,9 @@ window.addEventListener('load', loadData)
  let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
 
+
+ let username = document.getElementById('username-input')
+ let password = document.getElementById('password-input')
  let loginButton = document.querySelector('.login-button');
  let tripCostButton = document.getElementById('estimated-cost-btn');
  let submitTripButton = document.querySelector('.submit-btn');
@@ -36,35 +40,37 @@ window.addEventListener('load', loadData)
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
-   loadData();
+   clearForm()
+   loadData(userID);  //need to update dashboard after trip submitted
  })
+
+ function clearForm() {
+   //username.value = ""
+   //password???
+ }
 
  loginButton.addEventListener('click', attemptUserLogin);
  tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
 
  function attemptUserLogin() { //need to move to DOM updates
-   event.preventDefault() //do I need this here??
-  let username = document.getElementById('username-input').value;
-  let password = document.getElementById('password-input').value;
-  if (username.includes('traveler') && username.split('traveler')[1] > 0 && username.split('traveler')[1] < 51 && password === 'travel2020') {
-    // console.log('pass!')
-    let userID = parseInt(username.substr(8))
-    console.log("login success!")
+   //event.preventDefault() //do I need this here??
+  if (username.value.includes('traveler') && username.value.split('traveler')[1] > 0 && username.value.split('traveler')[1] < 51 && password.value === 'travel2020') {
+    userID = parseInt(username.value.substr(8))
+    loadData(userID)
     tripInfoArea.classList.remove('hidden');
     tripsArea.classList.remove('hidden');
     welcome.classList.remove('hidden');
     travelExpenses.classList.remove('hidden');
     logoutButton.classList.remove('hidden');
     loginForm.classList.add('hidden');
-    //call loadData, pass in userID -1 if I'm gonna use index number
   } else {
     alert('Incorrect username or password')
   }
  }
 
-function loadData() {    //rename later?
+function loadData(userID) {    //rename later?
   let travelerData = apiCalls.fetchAllUsersData();
-  let userData = apiCalls.fetchSingleUser();
+  let userData = apiCalls.fetchSingleUser(userID);
   let tripsData = apiCalls.fetchAllTripsData();
   let destinationsData = apiCalls.fetchAllDestinationsData()
   Promise.all([travelerData, userData, tripsData, destinationsData])
@@ -73,11 +79,9 @@ function loadData() {    //rename later?
     allUsers = data[0].map(traveler => {
       return new Traveler(traveler)
     })
-    //console.log("allTravelers", allUsers)
-    // singleUser = new Traveler(data[1])
-    // singleUser = allUsers[Math.floor(Math.random() * allUsers.length)]
-    singleUser = allUsers[2] //2
-    //console.log("singleUserData", singleUser)
+    //singleUser = allUsers[2] //2
+    singleUser = new Traveler(data[1])
+    // console.log("singleUserData", singleUser)
     allTripData = data[2].map(trip => {
       return new Trip(trip);
     })

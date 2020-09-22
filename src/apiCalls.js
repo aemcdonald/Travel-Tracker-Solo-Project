@@ -7,8 +7,8 @@ let apiCalls = {
     .catch(error => console.log(error))
   },
   //make sure to pass in ID & interpolate ID in url...
-  fetchSingleUser() {
-    return fetch('https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/travelers/travelers/2')
+  fetchSingleUser(userID) {
+    return fetch(`https://fe-apps.herokuapp.com/api/v1/travel-tracker/data/travelers/travelers/${userID}`)
     .then(response => response.json())
     .then(data => data)
     .catch(error => console.log(error))
