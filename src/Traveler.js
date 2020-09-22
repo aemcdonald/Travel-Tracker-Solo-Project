@@ -17,7 +17,6 @@ class Traveler {
         this.allTrips.push(trip);
       }
     })
-    return this.allTrips;
   }
   getPastTrips(currentDate) {
     this.allTrips.forEach(trip => {
