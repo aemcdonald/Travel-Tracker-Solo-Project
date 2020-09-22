@@ -40,14 +40,15 @@ import domUpdates from './domUpdates.js';
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
+   //alert('Your trip has been submitted for processing!')
    clearForm()
    loadData(userID);  //need to update dashboard after trip submitted
  })
 
- function clearForm() {
-   //username.value = ""
-   //password???
- }
+ // function clearForm() {
+ //   //username.value = ""
+ //   //password???
+ // }
 
  loginButton.addEventListener('click', attemptUserLogin);
  tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
