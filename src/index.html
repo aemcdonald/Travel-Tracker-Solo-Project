@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+     <meta charset="utf-8" name="description" content="A website that allows you to book an track your trips.">
     <title>Travel Tracker</title>
   </head>
   <body>
     <header>
-      <h1 class='welcome'>Travel Tracker</h1>
+      <h2 class='welcome'></h2>
+      <h1 class='title'>Travel Tracker</h1>
+      <div class="right-header-div">
+        <section class='trip-expenses'>
+          <h3>Total Cost YTD</h3>
+          <p class='total-spent'></p>
+        </section>
+        <button class="logout-button">Logout</button>
+      </div>
     </header>
     <section class='main'>
       <section class='trip-information-area'>
-        <form class="request-trip-form "method="post">
-              <h3>Book A Trip:</h3>
+        <form class="request-trip-form">
+              <h2 class="request-title">Book A Trip:</h2>
               <section class="form-container">
-              <label for="trip-date">Trip Date:</label>
-              <input id="trip-date" type="date" name="trip-date" value=""></input>
+              <label class="booking-label" for="trip-date">Trip Date:</label>
+              <input id="trip-date" type="date" name="trip-date" aria-describedby="This is a calendar where you select departure date of your trip" value=""></input>
               </section>
               <section class="form-container">
-              <label for="trip-duration">Duration:</label>
-              <input id="trip-duration" type="number" name="trip-duration" min="1" max="999"></input>
+              <label class="booking-label" for="trip-duration">Duration:</label>
+              <input id="trip-duration" type="number" name="trip-duration"  aria-describedby="This is an input field for entering the length of your trip as a number" min="1" max="999"></input>
               </section>
               <section class="form-container">
-                <label for="trip-travelers">Travelers:</label>
-                <input id="trip-travelers" type="number" name="trip-travelers" min="1" max="999"></input>
+                <label class="booking-label" for="trip-travelers">Travelers:</label>
+                <input id="trip-travelers" type="number" name="trip-travelers" aria-describedby="This is an input field for entering the total number of travelers for your trip" min="1" max="999"></input>
               </section>
               <section class="form-container">
-                <label for="trip-destinations">Destination:</label>
-                <select name="destination-selector" id="destination-selector"></select>
-                  <datalist id="destination-name">
-                  </datalist>
+                <label class="booking-label" for="destination-selector">Destination:</label>
+                <select name="destination-selector" id="destination-selector" aria-describedby="This is a dropdown menu with an alphabetized list of destinations you can travel to"></select>
+                  <!-- <datalist id="destination-name">
+                  </datalist> -->
                 </input>
               </section>
-              <section id="button"class="form-container">
-                <button id="estimated-cost-btn" class="estimated-cost-btn" type="button" name="cost">Estimated Cost</button>
-                <button id="submit-btn" class="submit-btn hidden" type="button" name="submit">Submit</button>
+              <section id="button"class="form-container form-button">
+                <button id="estimated-cost-btn" class="estimated-cost-btn" type="button" name="cost" aria-describedby="This is a button that when clicked will provide the estimated cost of your trip">Estimated Cost</button>
+                <button id="submit-btn" class="submit-btn hidden" type="button" name="submit" aria-describedby="This is a button that when clicked will submit your trip for booking">Submit</button>
               </section>
           </form>
-          <section class='trip-expenses'>
-            <h3>Total Cost YTD</h3>
-            <p class='total-spent'></p>
-          </section>
       </section>
       <section class='trips-area'>
-        <h3>Current Trips</h3>
+        <h4>Current Trips</h4>
       </section>
       <!-- <section class='upcoming-trips-area'>
         <h3>Upcoming Trips</h3>

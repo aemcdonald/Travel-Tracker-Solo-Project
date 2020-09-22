@@ -56,7 +56,7 @@ const domUpdates = {
         return trip.destinationID === destination.id
       })
       let tripCard = `
-      <article class='trip' id='${trip.id}'>
+      <article class='trip-card' id='${trip.id}'>
         <h4>${destination.destination}</h4>
         <img src="${destination.image}" alt="${destination.alt}" class="trip-image">
           <p>Departure: ${trip.date}</p>
