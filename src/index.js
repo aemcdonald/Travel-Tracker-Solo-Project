@@ -25,9 +25,8 @@ import domUpdates from './domUpdates.js';
  let bookTripInfo;
  let today = moment().format('YYYY/MM/DD')
 
-
- let username = document.getElementById('username-input')
- let password = document.getElementById('password-input')
+ let username = document.getElementById('username-input');
+ let password = document.getElementById('password-input');
  let loginButton = document.querySelector('.login-button');
  let tripCostButton = document.getElementById('estimated-cost-btn');
  let submitTripButton = document.querySelector('.submit-btn');
@@ -40,15 +39,11 @@ import domUpdates from './domUpdates.js';
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
-   //alert('Your trip has been submitted for processing!')
-   clearForm()
+   submitTripButton.disabled = true;
+   alert('Your trip has been submitted for processing!')
+   //clearForm()
    loadData(userID);  //need to update dashboard after trip submitted
  })
-
- // function clearForm() {
- //   //username.value = ""
- //   //password???
- // }
 
  loginButton.addEventListener('click', attemptUserLogin);
  tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
@@ -76,7 +71,7 @@ function loadData(userID) {    //rename later?
   let destinationsData = apiCalls.fetchAllDestinationsData()
   Promise.all([travelerData, userData, tripsData, destinationsData])
   .then(data => { //data is everything returned in promise.all
-    console.log("All Data", data)
+    // console.log("All Data", data)
     allUsers = data[0].map(traveler => {
       return new Traveler(traveler)
     })
@@ -134,5 +129,9 @@ function getBookedTripInfo() {
   }
   let selectedTrip = new Trip(bookTripInfo)
   let estimatedTripCost = selectedTrip.calculateTripCost(allDestinationData)
-  domUpdates.displayTripCost(estimatedTripCost)
+  if (travelersInput > 0 && dateInput !== '' && durationInput !== '') {
+    domUpdates.displayTripCost(estimatedTripCost)
+  } else {
+    alert('Make sure to fill out all fields')
+  }
 }
