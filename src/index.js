@@ -42,7 +42,7 @@ window.addEventListener('load', loadData)
  loginButton.addEventListener('click', attemptUserLogin);
  tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
 
- function attemptUserLogin() {
+ function attemptUserLogin() { //need to move to DOM updates
    event.preventDefault() //do I need this here??
   let username = document.getElementById('username-input').value;
   let password = document.getElementById('password-input').value;
