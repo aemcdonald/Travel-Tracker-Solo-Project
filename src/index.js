@@ -29,15 +29,12 @@ import domUpdates from './domUpdates.js';
  let submitTripButton = document.querySelector('.submit-btn');
  let tripInfoArea = document.querySelector('.trip-information-area');
  let tripsArea = document.querySelector('.trips-area');
- let welcome = document.querySelector('.welcome');
- let travelExpenses = document.querySelector('.trip-expenses');
- let logoutButton = document.querySelector('.logout-button');
- let loginForm = document.querySelector('.login-form')
+ let loginForm = document.querySelector('.login-form');
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
    submitTripButton.disabled = true;
-   alert('Your trip has been submitted for processing!')
+   alert('Your trip has been submitted for processing!');
    loadData(userID);
  })
 
