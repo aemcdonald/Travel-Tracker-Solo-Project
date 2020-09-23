@@ -4,6 +4,7 @@
   border-radius: 2px;
   border: none;
   font-size: 1em;
+  @extend #estimated-cost-btn;
 }
 
 .form-button {
@@ -24,7 +25,7 @@
 
    &:hover {
      cursor: pointer;
-     background-color: light-gray;
+     background-color: #B0B0B0;
    }
 }
 
@@ -35,6 +36,6 @@
 .login-button {
   @extend #estimated-cost-btn;
   height: 1.9em;
-  background-color: white;
   border: none;
+  border-radius: 2px;
 }
