@@ -31,7 +31,6 @@ describe('Trip', () => {
       expect(trip.travelers).to.equal(1);
       expect(trip1.travelers).to.equal(5);
     });
-    //default number of travelers of 1??
     it('Should have a date for a booking', () => {
       expect(trip.date).to.equal('2019/09/16');
     });

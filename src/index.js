@@ -42,7 +42,7 @@ import domUpdates from './domUpdates.js';
  })
 
  loginButton.addEventListener('click', attemptUserLogin);
- tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
+ tripCostButton.addEventListener('click', getBookedTripInfo);
 
  function attemptUserLogin() {
   if (username.value.includes('traveler') && username.value.split('traveler')[1] > 0 && username.value.split('traveler')[1] < 51 && password.value === 'travel2020') {
