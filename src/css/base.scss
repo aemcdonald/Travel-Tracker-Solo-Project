@@ -3,6 +3,8 @@
 @import './_login';
 @import './_tripcards.scss';
 @import './_bookform.scss';
+@import './_variables.scss';
+@import './_mixins.scss';
 
 /* This is an example of using Sass, otherwise plain CSS works too*/
 // $primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
@@ -15,6 +17,7 @@ body {
   font-family: arial;
   background-image: url('../images/plane.jpg');
   background-size: cover;
+  background-color: #F0F0F0;
 }
 
 .hidden {
