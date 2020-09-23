@@ -11,9 +11,7 @@
 
  .request-trip-form {
   width: 780px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include common-flex-display(flex, column, center);
   align-items: center;
   background-color: lightslategrey;
   opacity: 80%;
