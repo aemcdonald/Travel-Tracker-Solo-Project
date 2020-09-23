@@ -5,28 +5,33 @@
     <title>Travel Tracker</title>
   </head>
   <body>
-    <header>
-      <h2 class='welcome hidden'></h2>
+    <header class="hidden">
+      <h2 class='welcome'></h2>
       <h1 class='title'>Travel Tracker</h1>
       <div class="right-header-div">
-        <section class='trip-expenses hidden'>
+        <section class='trip-expenses'>
           <h3>Annual Travel Expenses:</h3>
           <p class='total-spent'></p>
         </section>
-        <button class="logout-button hidden">Logout</button>
+        <button class="logout-button">Logout</button>
       </div>
     </header>
     <section class='main'>
-      <article class="login-form">
-        <fieldset class="login">
-          <legend>Login</legend>
-          <form class="login">
-            <input type="text" id="username-input" placeholder="username" aria-label="username" required="required">
-            <input type="password" id="password-input" placeholder="password" aria-label="password" required="required">
-            <button type="button" class="login-button" name="login-button" label="login button">Login</button>
-          </form>
-        </fieldset>
-      </article>
+      <section class="login-area">
+        <article class="login-form">
+          <h1 class="login-header">TravelTracker</h1>
+          <fieldset class="login">
+            <legend></legend>
+            <form class="login">
+              <label class="login-input" for="Username">Username</label>
+              <input type="text" id="username-input" placeholder="username" aria-label="username" required="required">
+              <label class="login-input" for="Password">Password</label>
+              <input type="password" id="password-input" placeholder="password" aria-label="password" required="required">
+              <button type="button" class="login-button" name="login-button" label="login button">Login</button>
+            </form>
+          </fieldset>
+        </article>
+      </section>
       <section class='trip-information-area hidden'>
         <form class="request-trip-form">
               <h2 class="request-title">Book A Trip:</h2>

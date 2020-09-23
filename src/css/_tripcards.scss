@@ -1,0 +1,17 @@
+.trips-area {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.trip-image {
+ height: 200px;
+ width: 100%;
+}
+
+.trip-card {
+  margin: 30px;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+}

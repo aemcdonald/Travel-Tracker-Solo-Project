@@ -1,0 +1,29 @@
+.login-area {
+  margin-top: 100px;
+}
+
+.login-form {
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: lightslategrey;
+  opacity: 95%;
+  border: none;
+
+  input {
+    margin: 5px 0;
+  }
+}
+
+#password-input {
+  height: 2.2em;
+}
+#username-input {
+  @extend #password-input;
+}

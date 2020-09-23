@@ -74,7 +74,6 @@ const domUpdates = {
     let submitButton = document.querySelector('.submit-btn');
     submitButton.classList.remove('hidden')
   }
-
 }
 
 export default domUpdates;
