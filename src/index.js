@@ -50,10 +50,9 @@ import domUpdates from './domUpdates.js';
     loadData(userID)
     tripInfoArea.classList.remove('hidden');
     tripsArea.classList.remove('hidden');
-    welcome.classList.remove('hidden');
-    travelExpenses.classList.remove('hidden');
-    logoutButton.classList.remove('hidden');
+    document.querySelector('header').classList.remove('hidden');
     loginForm.classList.add('hidden');
+    document.querySelector('body').style.backgroundImage = 'none';
   } else {
     alert('Incorrect username or password')
   }
