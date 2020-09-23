@@ -22,8 +22,7 @@ The goals per the project spec:
 - Git/GitHub
 
 ## A GIF of the Working Application
-![Giphy of Project](https://i.imgur.com/2aPaIPl.gifv)
-Link to giphy: https://i.imgur.com/2aPaIPl.gifv
+![Giphy of Project](./src/images/travel-tracker-giphy.gif)
 
 ## Setup
 
