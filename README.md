@@ -22,7 +22,8 @@ The goals per the project spec:
 - Git/GitHub
 
 ## A GIF of the Working Application
-![Terminal view of project](https://imgur.com/2aPaIPl)
+![Giphy of Project](https://i.imgur.com/2aPaIPl.gifv)
+Link to giphy: https://i.imgur.com/2aPaIPl.gifv
 
 ## Setup
 
