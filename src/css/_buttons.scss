@@ -31,3 +31,10 @@
 #submit-btn {
  @extend #estimated-cost-btn;
 }
+
+.login-button {
+  @extend #estimated-cost-btn;
+  height: 1.9em;
+  background-color: white;
+  border: none;
+}
