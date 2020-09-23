@@ -29,20 +29,17 @@ import domUpdates from './domUpdates.js';
  let submitTripButton = document.querySelector('.submit-btn');
  let tripInfoArea = document.querySelector('.trip-information-area');
  let tripsArea = document.querySelector('.trips-area');
- let welcome = document.querySelector('.welcome');
- let travelExpenses = document.querySelector('.trip-expenses');
- let logoutButton = document.querySelector('.logout-button');
- let loginForm = document.querySelector('.login-form')
+ let loginForm = document.querySelector('.login-form');
 
  submitTripButton.addEventListener('click', function() {
    apiCalls.postTrip(bookTripInfo);
    submitTripButton.disabled = true;
-   alert('Your trip has been submitted for processing!')
+   alert('Your trip has been submitted for processing!');
    loadData(userID);
  })
 
  loginButton.addEventListener('click', attemptUserLogin);
- tripCostButton.addEventListener('click', getBookedTripInfo) //getTripCost
+ tripCostButton.addEventListener('click', getBookedTripInfo);
 
  function attemptUserLogin() {
   if (username.value.includes('traveler') && username.value.split('traveler')[1] > 0 && username.value.split('traveler')[1] < 51 && password.value === 'travel2020') {

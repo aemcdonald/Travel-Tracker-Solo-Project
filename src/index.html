@@ -24,7 +24,7 @@
             <legend></legend>
             <form class="login">
               <label class="login-input" for="Username">Username</label>
-              <input type="text" id="username-input" placeholder="username" aria-label="username" required="required">
+              <input type="text" autocomplete="off" id="username-input" placeholder="username" aria-label="username" required="required">
               <label class="login-input" for="Password">Password</label>
               <input type="password" id="password-input" placeholder="password" aria-label="password" required="required">
               <button type="button" class="login-button" name="login-button" label="login button">Login</button>
@@ -61,12 +61,6 @@
       <section class='trips-area hidden'>
         <h4>Current Trips</h4>
       </section>
-      <!-- <section class='upcoming-trips-area'>
-        <h3>Upcoming Trips</h3>
-      </section>
-      <section class='past-trips-area'>
-        <h3>Past Trips</h3>
-      </section> -->
     </section>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>

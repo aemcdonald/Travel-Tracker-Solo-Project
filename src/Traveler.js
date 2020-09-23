@@ -20,7 +20,7 @@ class Traveler {
   }
   getPastTrips(currentDate) {
     this.allTrips.forEach(trip => {
-        if (trip.date < currentDate && trip.status === 'approved') {
+      if (trip.date < currentDate && trip.status === 'approved') {
         this.pastTrips.push(trip)
       }
     })
@@ -59,7 +59,7 @@ class Traveler {
       total += trip.calculateTripCost(destinationData);
     })
     return total;
-    }
+  }
 }
 
 export default Traveler;

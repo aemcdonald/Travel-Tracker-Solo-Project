@@ -6,8 +6,7 @@ class Trip {
     this.travelers = trip.travelers || 1;
     this.date = trip.date;
     this.duration = trip.duration || 1;
-    this.status = trip.status || "pending" 
-    // this.suggestedActivities = []; //will I use this??
+    this.status = trip.status || "pending"
   }
   calculateTripCost(destinationData) {
     let tripFound = destinationData.find(destination => {

@@ -4,7 +4,7 @@ const domUpdates = {
   trips: null,
   destinations: null,
 
-  getData(allUsers, singleUser, allTripData, allDestinationData, date) {
+  getData(allUsers, singleUser, allTripData, allDestinationData) {
     this.allUsers = allUsers;
     this.traveler = singleUser;
     this.trips = allTripData;
@@ -31,7 +31,7 @@ const domUpdates = {
     let welcome = document.querySelector('.welcome');
     welcome.innerText = `Welcome, ${firstName[0]}!`;
     },
-  showTravelerExpensesYTD(today){
+  showTravelerExpensesYTD(today) {
     const annualTravelExpenses = this.traveler.getTotalSpentThisYear(this.destinations, today);
     let totalAmtSpent = document.querySelector('.total-spent')
     totalAmtSpent.innerText = ` $${annualTravelExpenses}`

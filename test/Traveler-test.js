@@ -122,7 +122,6 @@ describe('Traveler', () => {
     });
 
     it('Should calculate the total amount spent on trips this year', () => {
-      let trip = new Trip(trips[0])
       traveler2.getAllTrips(trips);
       traveler3.getAllTrips(trips);
       expect(traveler2.getTotalSpentThisYear(destinationData, "2020/09/19")).to.equal(6917.9);
